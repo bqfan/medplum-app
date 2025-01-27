@@ -8,19 +8,18 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "eslint .",
+    "lint:check": "eslint .",
     "lint:fix": "eslint . --fix",
     "type-check": "npx tsc --noEmit",
     "prettier:check": "npx prettier . --check",
-    "prettier:write": "npx prettier . --write",
+    "prettier:fix": "npx prettier . --write",
     "prepare": "husky"
   },
   "lint-staged": {
     "*.js": [
-      "linter-command",
-      "formatter-command",
-      "test-command",
-      "any-command"
+      "pnpm run lint:check",
+      "pnpm run lint:fix",
+      "pnpm run prettier:fix"
     ]
   },
   "husky": {
