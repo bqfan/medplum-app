@@ -1,4 +1,5 @@
 import pluginJs from "@eslint/js";
+import eslintPluginImport from 'eslint-plugin-import';
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import unusedImports from "eslint-plugin-unused-imports";
@@ -16,6 +17,7 @@ export default [
     plugins: {
       "simple-import-sort": simpleImportSort,
       "unused-imports": unusedImports,
+      import: eslintPluginImport,
     },
   },
   {
@@ -47,7 +49,7 @@ export default [
         },
       ], // Ensure `import type` is used when it's necessary
       "import/prefer-default-export": "off", // Named export is easier to refactor automatically
-      // 'import/no-cycle': ['error', { maxDepth: '∞' }],
+      'import/no-cycle': ['error', { maxDepth: '∞' }],
       "simple-import-sort/imports": "error", // Import configuration for `eslint-plugin-simple-import-sort`
       "simple-import-sort/exports": "error", // Export configuration for `eslint-plugin-simple-import-sort`
       "@typescript-eslint/no-unused-vars": "off",
@@ -63,4 +65,9 @@ export default [
       ],
     },
   },
+  {
+    settings: {
+      'import/ignore': ['react-native'],
+    },
+  }
 ];
